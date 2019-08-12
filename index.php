@@ -1,14 +1,19 @@
 <?php
-require('controller/frontend.php');
+
+require('controller/frontend/commentController.php');
+require('controller/frontend/postController.php');
+
+$postController = new postController;
+$commentController = new commentController;
 
 try  {
 	if (isset($_GET['action']))  {
-		if ($_GET['action'] == 'listPosts')  {
-			listPosts();
+		if ($_GET['action'] == 'Accueil')  {
+			$postController->thirdLastsPosts();
 		}
 		elseif ($_GET['action'] == 'post')  {
 			if (isset($_GET['id']) && ($_GET['id'] > 0))  {
-				post();
+				$postController->post();
 			}
 			else  {
 				throw new Exception ('Aucun identifiant de billet envoyé');
@@ -17,7 +22,7 @@ try  {
 		elseif ($_GET['action'] == 'addComment')  {
 			if (isset($_GET['id']) && $_GET['id'] > 0)  {
 				if (!empty($_POST['pseudo']) && (!empty($_POST['comment'])))  {
-					addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
+				$commentController->addComment($_GET['id'], $_POST['pseudo'], $_POST['comment']);
 				}
 				else  {
 					throw new Exception ('Tout les champs ne sont pas remplis !');
@@ -30,14 +35,14 @@ try  {
 		}
 		
 		elseif ($_GET['action']  == 'summary')  {
-    		summaryPost();
+    		$postController->summaryPost();
 		}
 		else  {
-			listPosts();
+			$postController->thirdLastsPosts();
 		}
 	}
 	else  {
-		listPosts();
+		$postController->thirdLastsPosts();
 	}
 }
 catch(Exception $e)  {
