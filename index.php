@@ -9,7 +9,7 @@ $commentController = new commentController;
 try  {
 	if (isset($_GET['action']))  {
 		if ($_GET['action'] == 'Accueil')  {
-			$postController->thirdLastsPosts();
+			$postController->Accueil();
 		}
 		elseif ($_GET['action'] == 'post')  {
 			if (isset($_GET['id']) && ($_GET['id'] > 0))  {
@@ -37,12 +37,24 @@ try  {
 		elseif ($_GET['action']  == 'summary')  {
     		$postController->summaryPost();
 		}
+		elseif ($_GET['action'] == 'report')  {
+			if (isset($_GET['idcomment']) && isset($_GET['id']))  {
+				if ($_GET['idcomment'] > 0 && $_GET['id'] > 0)  {
+					//lancer la fonction de report
+					$commentController->reportComment($_GET['idcomment'], $_GET['id']);
+				}
+				else  {
+					throw new Exception('Aucun identifiant de commentaire envoyé');
+				}
+			}
+			
+		}
 		else  {
-			$postController->thirdLastsPosts();
+			$postController->Accueil();
 		}
 	}
 	else  {
-		$postController->thirdLastsPosts();
+		$postController->Accueil();
 	}
 }
 catch(Exception $e)  {
