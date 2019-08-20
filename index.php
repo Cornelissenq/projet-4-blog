@@ -65,10 +65,10 @@ try  {
 			}
 		}
 		elseif ($_GET['action'] == 'admin')  {
-			$loginController->tableAdmin();
+			$adminPostController->tableAdmin();
 		}
 		elseif ($_GET['action'] == 'table')  {
-			$loginController->tableAdmin();
+			$adminPostController->tableAdmin();
 		}
 		elseif ($_GET['action'] == 'deletePost') {
 			$adminPostController->deletePost($_GET['id']);
