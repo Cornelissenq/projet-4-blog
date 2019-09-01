@@ -18,7 +18,7 @@ $adminCommentController = new adminCommentController;
 try  {
 	if (isset($_GET['action']))  {
 		if ($_GET['action'] == 'Accueil')  {
-			$postController->Accueil();
+			$postController->accueil();
 		}
 		elseif ($_GET['action'] == 'post')  {
 			if (isset($_GET['id']) && ($_GET['id'] > 0))  {
@@ -56,6 +56,9 @@ try  {
 				}
 			}	
 		}
+
+/*                       ESPACE IDENTIFICATION                                           */
+
 		elseif ($_GET['action'] == 'login')  {
 			if (isset($_POST['pseudo']) && isset($_POST['pw']))  {
 				$loginController->login($_POST['pseudo'], $_POST['pw']);
@@ -64,40 +67,69 @@ try  {
 				$loginController->formLogin();
 			}
 		}
+
+/*                      ESPACE ADMINISTRATION                                          */
+
 		elseif ($_GET['action'] == 'admin')  {
-			$adminPostController->tableAdmin();
+			$adminCommentController->countReportedComments();
 		}
-		elseif ($_GET['action'] == 'table')  {
-			$adminPostController->tableAdmin();
+		elseif ($_GET['action'] == 'tablePost')  {
+			$adminPostController->tablePost();
+		}
+		elseif ($_GET['action'] == 'tableComment')  {
+			$adminCommentController->tableComment();
 		}
 		elseif ($_GET['action'] == 'deletePost') {
 			$adminPostController->deletePost($_GET['id']);
 		}
 		elseif ($_GET['action'] == 'editPost')  {
-			$adminPostController->editPost($_GET['id']);
-		}
-		elseif ($_GET['action'] == 'editedPost')  {
-			if (isset($_GET['id']) && $_GET['id'] > 0)  {
+			if (isset($_GET['id']) && $_GET['id'] > 0)  {	
 				if (isset($_POST['title']) && isset($_POST['extractContent']) && isset($_POST['contents']))  {
-					$adminPostController->editedPost($_POST['title'], $_POST['extractContent'], $_POST['contents'], $_GET['id']);
+						$adminPostController->editedPost($_POST['title'], $_POST['extractContent'], $_POST['contents'], $_GET['id']);
 				}
 				else  {
-					throw new Exception('Le formulaire est mal rempli, merci de re-saisir la modification.');
+					$adminPostController->editPost($_GET['id']);
 				}
+			}
+			else
+			{
+				throw new Exception('Aucun identifiant de billet envoyé');
+			}
+		}
+		elseif ($_GET['action'] == 'addPost')  {
+			if (isset($_POST['title']) && isset($_POST['extractContent']) && isset($_POST['contents']))  {
+					$adminPostController->addedPost($_POST['title'], $_POST['extractContent'], $_POST['contents']);
+			}
+			else  {
+				$adminPostController->addPost();
+			}
+		}
+		elseif ($_GET['action'] == 'reportedComments')  {
+			$adminCommentController->getReportedComments();
+		}
+		elseif ($_GET['action'] == 'validateComment')  {
+			if (isset($_GET['id']))  {
+				$adminCommentController->validateComment($_GET['id']);
 			}
 			else  {
 				throw new Exception('Aucun identifiant de billet envoyé');
 			}
-
-			
+		}
+		elseif ($_GET['action'] == 'deleteComment')  {
+			if (isset($_GET['id']))  {
+				$adminCommentController->deleteComment($_GET['id']);
+			}
+			else  {
+				throw new Exception('Aucun identifiant de billet envoyé');
+			}
 		}
 		else  {
-			$postController->Accueil();
+			$postController->accueil();
 		}
 
 	}
 	else  {
-		$loginController->tableAdmin();
+		$postController->accueil();
 	}
 }
 catch(Exception $e)  {
