@@ -134,6 +134,10 @@ try  {
 				throw new Exception('Aucun identifiant de billet envoyé');
 			}
 		}
+	/*                      ESPACE DECONNECTION                                          */
+		elseif ($_GET['action'] == 'logout')  {
+			$loginController->logout();
+		}
 		else  {
 			$postController->accueil();
 		}
