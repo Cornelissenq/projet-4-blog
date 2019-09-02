@@ -6,6 +6,7 @@ require('controller/frontend/loginController.php');
 
 require('controller/backend/adminPostController.php');
 require('controller/backend/adminCommentController.php');
+require('controller/backend/BackendController.php');
 
 
 $postController = new postController;
@@ -14,6 +15,8 @@ $loginController = new loginController;
 
 $adminPostController = new adminPostController;
 $adminCommentController = new adminCommentController;
+
+
 
 try  {
 	if (isset($_GET['action']))  {
@@ -71,19 +74,25 @@ try  {
 /*                      ESPACE ADMINISTRATION                                          */
 
 		elseif ($_GET['action'] == 'admin')  {
+			$BackendController = new BackendController;
 			$adminCommentController->countReportedComments();
 		}
 		elseif ($_GET['action'] == 'tablePost')  {
+			$BackendController = new BackendController;
 			$adminPostController->tablePost();
 		}
 		elseif ($_GET['action'] == 'tableComment')  {
+			$BackendController = new BackendController;
 			$adminCommentController->tableComment();
 		}
 		elseif ($_GET['action'] == 'deletePost') {
+			
+			$BackendController = new BackendController;
 			$adminPostController->deletePost($_GET['id']);
 		}
 		elseif ($_GET['action'] == 'editPost')  {
-			if (isset($_GET['id']) && $_GET['id'] > 0)  {	
+			if (isset($_GET['id']) && $_GET['id'] > 0)  {
+				$BackendController = new BackendController;
 				if (isset($_POST['title']) && isset($_POST['extractContent']) && isset($_POST['contents']))  {
 						$adminPostController->editedPost($_POST['title'], $_POST['extractContent'], $_POST['contents'], $_GET['id']);
 				}
@@ -97,6 +106,7 @@ try  {
 			}
 		}
 		elseif ($_GET['action'] == 'addPost')  {
+			$BackendController = new BackendController;
 			if (isset($_POST['title']) && isset($_POST['extractContent']) && isset($_POST['contents']))  {
 					$adminPostController->addedPost($_POST['title'], $_POST['extractContent'], $_POST['contents']);
 			}
@@ -105,6 +115,7 @@ try  {
 			}
 		}
 		elseif ($_GET['action'] == 'reportedComments')  {
+			$BackendController = new BackendController;
 			$adminCommentController->getReportedComments();
 		}
 		elseif ($_GET['action'] == 'validateComment')  {
