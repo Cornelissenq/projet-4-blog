@@ -1,0 +1,389 @@
+/*Police*/
+@font-face
+{
+font-family: 'Beth Ellen', cursive;
+}
+
+
+body
+{
+	background: url("../images/just-waves.png");
+}
+/* Menu */
+header
+{
+	background: white;
+}
+.logo img 
+{
+	height: 60px;
+}
+.menusite ul
+{
+	display: flex;
+	justify-content: space-between;
+	padding: 15px;
+}
+.menusite a
+{
+	font-style: italic;
+	text-decoration: none;
+	color: black;
+	font-family: 'Lobster', cursive;
+}
+.menusite a:hover
+{
+	color: cadetblue;
+	text-decoration: none;
+}
+
+/*Titre*/
+.maintitle
+{
+	padding: 10%;
+	margin-bottom: 3%;
+	background: url('../images/background.jpg') fixed;
+	text-align: center;
+}
+.maintitle h1
+{
+	color: whitesmoke;
+	font-family: 'Beth Ellen', cursive;
+}
+/*sommaire*/
+
+.title
+{
+	color:cadetblue;
+	font-family: 'Beth Ellen', cursive;
+
+}
+.date
+{
+	font-family: 'Dancing Script', cursive;
+	font-size: 0.8em;
+}
+.titlePost
+{
+	border-bottom: 3px groove #c0c0c02b	;
+}
+.post
+{
+	border : 3px solid silver;
+	background: white;
+	padding: 5%;
+	margin-bottom: 2%;
+	border-radius: 3%;
+}
+
+.contentPost
+{
+	margin-top: 2%;
+	font-family: 'Lobster', cursive;
+}
+
+/*post*/
+.headerComment h4
+{
+	text-align: center;
+	border-bottom: 3px groove whitesmoke	;
+	padding-bottom: 3%;
+}
+#enableForm
+{
+	background: white;
+	color: cadetblue;
+	font-size: 0.9em;
+	margin-top: 1%;
+	margin-bottom: 3%;
+	border:1px solid silver;
+}
+#enableForm:hover
+{
+	background: lightblue;
+	color: #5b4f4c;
+}
+#commentForm
+{
+	display: none;
+}
+#commentForm form
+{
+	background: whitesmoke;
+	border-top: 3px solid gray;
+	padding: 3%;
+	margin-bottom: 3%;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	border-radius: 5%;
+}
+.comments
+{
+	border : 2px inset grey;
+	background: aliceblue;
+	padding: 2%;
+	margin-bottom: 1%;
+	border-radius: 5%;
+}
+
+.titlecomment
+{
+	border-bottom: 1px dashed silver;
+
+}
+.reportbouton
+{
+	border: 1px solid gray;
+	background: rgba(250, 250, 250, 0.5);
+	font-size: 0.7em;
+	margin-top: 1%;
+	text-decoration: none;
+	color: rosybrown;
+}
+.reportbouton:hover
+{
+	color: white;
+	background: rosybrown;
+	text-decoration: none;
+}
+.pseudodate
+{
+	margin-bottom: 0;
+}
+.datecomment
+{
+	font-size: 0.7em;
+	color: gray;
+}
+.contentComment
+{
+	font-family: 'Dosis', sans-serif;
+	border-radius: 5%;
+	padding: 1.5% 1% 0.5% 2%;
+}
+#sessionStorage
+{
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	color: white;
+	vertical-align: center;
+	border: 1px solid lightblue;
+	padding-top: 10px;
+	z-index:50000;
+	font-style: italic;
+}
+.red
+{
+	background: red;
+}
+.green
+{
+	background: seagreen;
+}
+#sessionStorage button
+{
+	border : 0px;	
+	font-size: 1.2em;
+}
+
+/*summary*/
+.summar:hover
+{
+	background: lightblue;
+}
+.summar .title
+{
+	/*margin-left: 30px;*/
+	text-align: center;
+}
+.numberChapter
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 3%;
+	background: cadetblue;
+	color: white;
+	border-top-left-radius: 10%;
+	border-bottom-right-radius: 100%;
+	font-size: 1.4em;
+}
+/*Template Admin */
+.mainAdmintitle{
+	text-align: center;
+	padding: 1%;
+	margin: 1%;
+	border: 1px ridge cadetblue;
+	border-radius: 3%;
+	background: whitesmoke;
+	font-style: italic;
+	color: cadetblue;
+}
+/*Interface admin*/
+.adminview
+{
+	background: aliceblue;
+	border-radius: 7%;
+	border : 1px solid grey;
+	padding:5% 2% 15% 2%;
+}
+.adminview h3
+{
+	text-align: center;
+	font-style: italic;
+	padding-bottom: 10%;
+}
+.adminLink  
+{	
+	padding: 2%;
+	text-align: center;
+	border-radius: 7%;
+	font-weight: 900;
+	font-size: 1.2em;
+}
+.adminLink:hover
+{
+	background: grey;
+}
+.adminLink a
+{
+	text-decoration: none;
+	color: grey;
+}
+.adminLink:hover a
+{
+	color: whitesmoke;
+	text-decoration: none;
+}
+
+/*Table Admin*/
+table
+{
+	margin-top: 5%;
+}
+thead tr
+{
+	text-align: center;
+	font-style: italic;
+	margin-top: 5%;
+}
+.linkpost
+{
+	text-decoration: none;
+	color: cadetblue;
+}
+.linkpost:hover
+{
+	text-decoration: none;
+	color: grey;
+}
+.panel
+{
+	border: 1px outset aliceblue;
+	border-radius : 7%;
+	background: cadetblue;
+	padding: 5%;
+	margin-bottom: 2%;
+	text-decoration: none;
+	color: whitesmoke;
+}
+.paneladd
+{
+	text-align: center;
+	margin-bottom: 1%;
+}
+.paneladd .panel
+{
+	font-weight: 900;
+}
+.panel:hover
+{
+	text-decoration: none;
+	color: cadetblue;
+	background: whitesmoke;
+	border: 1px inset cadetblue;
+}
+/*Table comment*/
+.bulle
+{
+	text-align: center;
+}
+.bulle a
+{
+	text-align: center;
+	border: 1px outset aliceblue;
+	border-radius: 50%;
+	padding: 5px;
+	background: cadetblue;
+	color: whitesmoke;
+}
+.bulle a:hover
+{
+	text-decoration: none;
+	color: cadetblue;
+	background: whitesmoke;
+	border: 1px inset cadetblue;
+}
+/*editPost*/
+.btnReturn
+{
+	padding: 0.5%;
+	border: 1px solid grey;
+	border-radius: 5%;
+	background: lightblue;
+	color: black;
+	margin-bottom: 1%;
+}
+/*footer*/
+footer
+{
+	background: slategrey;
+	border-top: 2px solid black;
+	text-align: center;
+	font-size: 0.8em;
+	padding-top: 1%;
+	position: relative;
+	bottom: -20px;
+	left: 0;
+	right: 0;
+	margin-top: 5%;
+	
+}
+
+footer a
+{
+	text-decoration: none;
+	color: black;
+}
+footer a:hover
+{
+	color: whitesmoke;
+}
+
+footer #follow
+{
+	display: flex;
+}
+footer li
+{
+	list-style-type: none;
+}
+footer #follow li
+{
+	font-size: 2em;
+}
+footer #fb:hover
+{
+	color: blue;
+}
+footer #twitter:hover
+{
+	color: #38A1F3;
+}
+footer #insta:hover
+{
+	color: purple;
+}
